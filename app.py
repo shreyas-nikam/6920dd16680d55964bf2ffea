@@ -5,7 +5,7 @@ st.sidebar.image("https://www.quantuniversity.com/assets/img/logo5.jpg")
 st.sidebar.divider()
 st.title("QuLab")
 st.divider()
-st.markdown("""
+st.markdown(r"""
 # Financial Model Stress Analyzer
 
 This Streamlit application will enable financial professionals to conduct scenario-based robustness tests on Machine Learning (ML) models. It allows users to define stress scenarios, apply them as quantitative input shocks to model features, and observe their impact on model predictions and aggregated portfolio metrics. The target audience includes quantitative analysts, model developers, risk managers, and validators.

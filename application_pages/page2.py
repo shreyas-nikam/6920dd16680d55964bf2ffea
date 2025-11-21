@@ -71,7 +71,7 @@ def run_page2():
         st.subheader("Scenario Definition & Application")
         selected_scenario_option = st.selectbox(
             "Select a Stress Scenario",
-            options=list(scenario_shocks_config.keys()) + ["Custom Scenario"],
+            options=list(scenario_shocks_config.keys()) ,
             key="selected_scenario_option",
             help="Choose a pre-defined scenario or define your own custom shocks."
         )
@@ -99,7 +99,7 @@ def run_page2():
                     with col3:
                         if st.button("Remove", key=f"remove_shock_{i}"):
                             st.session_state['custom_shocks'].pop(i)
-                            st.experimental_rerun() # Rerun to update the list
+                            st.rerun() # Rerun to update the list
 
                 # Add new custom shock pair
                 with st.form("add_custom_shock_form"):
@@ -111,7 +111,7 @@ def run_page2():
                     add_shock_button = st.form_submit_button("Add Custom Shock")
                     if add_shock_button and new_feature and new_feature not in [s['feature'] for s in st.session_state['custom_shocks']]:
                         st.session_state['custom_shocks'].append({'feature': new_feature, 'value': new_shock_value})
-                        st.experimental_rerun()
+                        st.rerun()
                     elif add_shock_button and not new_feature:
                         st.warning("Feature name cannot be empty.")
                     elif add_shock_button and new_feature in [s['feature'] for s in st.session_state['custom_shocks']]:

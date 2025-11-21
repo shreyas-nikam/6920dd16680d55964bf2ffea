@@ -135,7 +135,7 @@ def run_page3():
             y='Mean_Delta_PD',
             color='Mean_Delta_PD',
             color_continuous_scale=px.colors.sequential.RdBu,
-            title=f'Mean $\Delta$PD by {aggregation_segment}',
+            title=rf'Mean $\Delta$PD by {aggregation_segment}',
             labels={'Mean_Delta_PD': 'Mean Change in PD'}
         )
         st.plotly_chart(fig_heatmap_pd, use_container_width=True)

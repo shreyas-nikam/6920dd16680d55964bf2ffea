@@ -18,7 +18,7 @@ def run_page1():
     """)
 
     st.header("3. Data/Inputs Overview")
-    st.markdown("""
+    st.markdown(r"""
     To effectively demonstrate stress testing without relying on sensitive real-world financial data, this notebook utilizes a synthetic dataset. This synthetic data simulates a credit portfolio, encompassing various financial characteristics and a target variable representing the Probability of Default (PD). The data generation process is designed to mimic realistic financial feature distributions and interdependencies, making it suitable for illustrating the concepts of scenario-based stress testing.
 
     **Assumptions:**
@@ -143,7 +143,7 @@ def run_page1():
         st.subheader("Descriptive Statistics (`df.describe()`)")
         st.dataframe(st.session_state['df_baseline'].describe())
 
-        st.markdown("""
+        st.markdown(r"""
         ### Interpretation of Data Generation and Initial Inspection
 
         The output above provides a first look at our synthetic financial dataset.
@@ -219,7 +219,7 @@ def run_page1():
         st.markdown("Here's a preview of the features used for the mock model predictions:")
         st.dataframe(X_baseline.head())
 
-        st.markdown("""
+        st.markdown(r"""
         ### Interpretation of Mock ML Model Instantiation and Feature Preparation
 
         This step initializes our `MockMLModel` and prepares the input features for making predictions.
@@ -231,7 +231,7 @@ def run_page1():
         """)
 
         st.markdown("### 5.3. Calculating Baseline Predictions")
-        st.markdown("""
+        st.markdown(r"""
         Before applying any stress, it is essential to establish a baseline by obtaining predictions from our mock ML model on the original, unstressed dataset. This serves as the reference point for measuring scenario impacts. The baseline prediction is denoted as $\hat{y} = f_\theta(x)$.
 
         **Business Value:**
@@ -253,7 +253,7 @@ def run_page1():
             st.write("Baseline predictions (PD_baseline) calculated and added to `df_baseline`. Here's a preview:")
             st.dataframe(st.session_state['df_baseline'].head())
 
-            st.markdown("""
+            st.markdown(r"""
             ### Interpretation of Baseline Predictions
 
             The `PD_baseline` column, which has just been added to our `df_baseline` DataFrame, represents the mock ML model's initial prediction for the Probability of Default (PD) for each entity (e.g., customer, loan) under normal, unstressed financial conditions. This is the **starting point** from which all changes due to stress scenarios will be measured.
@@ -266,7 +266,7 @@ def run_page1():
             """)
             st.write(f"Mean of PD_baseline: {st.session_state['df_baseline']['PD_baseline'].mean():.4f}")
             st.write(f"Standard Deviation of PD_baseline: {st.session_state['df_baseline']['PD_baseline'].std():.4f}")
-            st.markdown("""
+            st.markdown(r"""
             The mean of `PD_baseline` indicates the average expected default rate across the entire portfolio under normal conditions. The standard deviation, on the other hand, tells us about the dispersion or variability of individual PDs around this mean. A higher standard deviation would imply a more heterogeneous portfolio in terms of default risk.
 
             These values are fundamental for financial risk managers as they set the expectation against which stressed outcomes will be compared. For example, if the mean PD significantly increases under a stress scenario, it signals a material impact on the portfolio's credit quality.
